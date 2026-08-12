@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.ipynb_checkpoints
+
+# Environments
+.env
+.env.dev
+.venv
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Pytest / mypy
+.pytest_cache/
+.mypy_cache/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project logs, SQLite/local DB, media
+backend/logs/*
+!backend/logs/.gitkeep
+backend/media/*
+!backend/media/.gitkeep
+backend/data/*
+!backend/data/.gitkeep
+

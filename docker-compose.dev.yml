@@ -1,0 +1,72 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ghost_db
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: ghost_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_dev:/data
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: ghost_mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ghost_web
+    volumes:
+      - ./backend/migrations:/app/migrations
+      - ./backend/src:/app/src
+      - ./backend/templates:/app/templates
+      - ./backend/alembic.ini:/app/alembic.ini
+      - ./backend/logs:/app/logs
+      - ./backend/media:/app/media
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload --reload-exclude "*/logs/*" --reload-exclude "*.pyc" --reload-exclude "*/__pycache__/*"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+      - redis
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ghost_worker
+    command: celery -A src.shared.celery:app worker --loglevel=info
+    volumes:
+      - ./backend/src:/app/src
+    depends_on:
+      - web
+    env_file:
+      - ./backend/.env
+
+  nginx:
+    image: nginx:alpine
+    container_name: ghost_nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./backend/media:/app/media:ro
+    depends_on:
+      - web
+
+volumes:
+  postgres_data_dev:
+  redis_data_dev:

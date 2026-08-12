@@ -1,0 +1,1 @@
+from src.bot.config import bot, dp

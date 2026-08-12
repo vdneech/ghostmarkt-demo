@@ -1,0 +1,39 @@
+# Ignore git and IDE configurations
+.git
+.gitignore
+.idea
+.vscode
+
+# Ignore environment files and secrets (critical for security!)
+.env
+.env.*
+*.env
+
+# Ignore temporary and cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Ignore local virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Ignore tests (not needed in production container)
+tests/
+
+# Ignore databases, logs, and user uploads
+data/
+logs/
+media/
+*.log
+*.db
+*.sqlite3
+
+# Ignore docker files in the image itself
+Dockerfile
+docker-compose*

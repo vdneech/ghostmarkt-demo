@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать</title>
+    <style>
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #202123;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-top: 6px solid #202123;
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #202123;
+        }
+
+        .content-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            padding-bottom: 20px;
+            text-align: center;
+            color: #202123;
+        }
+
+        .content-body {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #202123;
+            color: #ffffff;
+            border: 1px solid #000000;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 40px 0; background-color: #f7f7f8; -webkit-font-smoothing: antialiased;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f7f7f8; padding: 40px 0;">
+        <tr>
+            <td align="center">
+                <table class="container" width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 500px; background-color: #ffffff; border: 1px solid #e0e0e0; border-top: 6px solid #202123; border-radius: 4px; overflow: hidden; padding: 40px;">
+
+                    <!-- Логотип -->
+                    <tr>
+                        <td class="header" align="center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; text-align: center; padding-bottom: 30px; border-bottom: 1px solid #e0e0e0; color: #202123;">
+                            GHOSTMARKT
+                        </td>
+                    </tr>
+
+                    <!-- Заголовок -->
+                    <tr>
+                        <td class="content-title" align="center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.4; padding-top: 30px; padding-bottom: 20px; text-align: center; color: #202123;">
+                            Привет, {{ user.first_name | default('новый пользователь') }}!
+                        </td>
+                    </tr>
+                    
+                    <!-- Текст -->
+                    <tr>
+                        <td class="content-body" align="center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #666666; text-align: center;">
+                            Мы рады видеть вас здесь. Добро пожаловать в наше сообщество!
+                        </td>
+                    </tr>
+
+                    <!-- Кнопка -->
+                    <tr>
+                        <td align="center" style="padding-top: 40px;">
+                            <a href="#" class="btn" style="display: inline-block; background-color: #202123; color: #ffffff; border: 1px solid #000000; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                                Начать работу
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

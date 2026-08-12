@@ -1,0 +1,31 @@
+Заказ: #{{ order.id }}
+Дата: {{ date_str }}
+
+<b>ТОВАРЫ:</b>
+{%- for item in order.items %}
+* {{ (item.product.name_en or item.product.name) if item.product else "Неизвестный товар" }}
+{%- if item.product and item.product.meta -%}
+{%- for meta_item in item.product.meta -%}
+{%- set key = meta_item.key if meta_item.key is defined else meta_item.get('key') -%}
+{%- set values = meta_item.values if meta_item.values is defined else meta_item.get('values', {}) -%}
+{%- set label = values.get('ru') or values.get('Locale.RU') or key -%}
+{%- set val = item.meta.get(key) if item.meta else "нет данных" -%}
+- {{ label }}: {{ val }}
+{%- endfor -%}
+{%- endif %}
+Количество: {{ item.quantity }} шт. × {{ item.price_at_purchase }} ₽
+{%- endfor %}
+
+Итого: {{ order.total_amount }} ₽
+
+<b>ДОСТАВКА:</b>
+{%- set delivery_methods = {'CDEK': 'СДЭК', 'RUSSIAN_POST': 'Почта России', 'URBAN': 'Доставка по Краснодару'} -%}
+{%- set delivery_name = delivery_methods.get(order.delivery.value, order.delivery.value) -%}
+Способ: {{ delivery_name }}
+Адрес: {{ order.address }}
+
+<b>КЛИЕНТ:</b>
+ФИО: {{ order.user.fullname if order.user else "Аноним" }}
+Email: {{ order.user.email if order.user else "-" }}
+Тел: {{ order.user.phone if order.user else "-" }}
+Откуда: {{ order.user.source if order.user else "-" }}

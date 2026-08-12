@@ -1,0 +1,23 @@
+{% extends "en_base.html" %}
+
+{% block title %}Order Cancelled{% endblock %}
+
+{% block content %}
+<h1 style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; color: #202123; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    PAYMENT WINDOW EXPIRED
+</h1>
+
+<p style="margin: 0 0 24px 0; font-size: 14px; color: #666666; text-align: center; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    Your order <span class="accent-text">#{{ order_code }}</span> has been automatically cancelled because payment was not received within {{ expire_minutes }} minutes.
+</p>
+
+<div style="background-color: #f7f7f8; border: 1px solid #e0e0e0; border-radius: 4px; padding: 20px; margin-bottom: 32px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <p style="margin: 0; font-size: 13px; color: #666666;">If you still wish to make this purchase, you can return to the catalog and place a new order.</p>
+</div>
+
+<div style="text-align: center; margin-bottom: 24px;">
+    <a href="{{ catalog_url }}" style="display: inline-block; background-color: #202123; color: #ffffff; border: 1px solid #000000; padding: 12px 28px; border-radius: 4px; font-weight: 700; text-decoration: none; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-transform: uppercase;">
+        Go to Catalog
+    </a>
+</div>
+{% endblock %}
