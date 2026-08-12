@@ -9,7 +9,7 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 
-Демо-версия бэкенд-сервера интернет-магазина ghostmarkt.com. Документация по API и openapi-схема доступны соответственно по поддоменам docs.ghostmarkt.com и api.ghostmarkt.com.
+Демо-версия бэкенд-сервера интернет-магазина [ghostmarkt](https://ghostmarkt.com). Документация по API и openapi-схема доступны соответственно по поддоменам [docs](https://docs.ghostmarkt.com) и [api](https://api.ghostmarkt.com).
 Репозиторий представляет собой изолированную серверную часть проекта (API на FastAPI + Telegram-бот на aiogram + фоновые задачи на Celery).
 
 ---
